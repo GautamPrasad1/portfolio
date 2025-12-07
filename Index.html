@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gautam Prasad — Freelance Portfolio</title>
+  <meta name="description" content="Portfolio of Gautam Prasad — Product Development | Prototype | Project Management" />
+  <link rel="icon" href="data:," />
+
+  <style>
+    /* Basic reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html,body { height:100%; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: linear-gradient(180deg,#0f1724 0%, #071226 100%); color:#e6eef8; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+
+    /* Container */
+    .wrap { max-width:1100px; margin:40px auto; padding:28px; background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border-radius:18px; box-shadow: 0 10px 30px rgba(2,6,23,0.7); display:grid; grid-template-columns: 320px 1fr; gap:28px; }
+
+    /* Sidebar */
+    .sidebar { padding:22px; border-radius:14px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); position:relative; overflow:hidden; }
+    .photo { width: 100%; border-radius:12px; overflow:hidden; box-shadow:0 8px 22px rgba(2,6,23,0.7); transform: translateZ(0); transition: transform .45s cubic-bezier(.2,.9,.2,1); }
+    .photo img { display:block; width:100%; height:auto; object-fit:cover; }
+    .photo:hover { transform: translateY(-6px) rotate(-1deg) scale(1.02); }
+
+    .name { margin-top:16px; font-size:1.3rem; font-weight:700; color:#f3f8ff; }
+    .title { color:#a9c1e4; margin-top:6px; font-weight:600; font-size:.95rem; }
+    .contact { margin-top:14px; color:#cfe1ff; font-size:.95rem; line-height:1.6; }
+    .btn { display:inline-block; margin-top:12px; padding:10px 14px; border-radius:10px; background:linear-gradient(90deg,#2463ff,#00c3ff); color:#041020; font-weight:700; text-decoration:none; box-shadow: 0 6px 18px rgba(3,35,102,0.25); }
+
+    /* Main content */
+    .main { padding:22px; border-radius:14px; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); min-height: 420px; }
+    .section { margin-bottom:18px; }
+    .section h2 { font-size:1.05rem; margin-bottom:10px; color:#eaf6ff; border-left:4px solid rgba(0,195,255,0.7); padding-left:12px; }
+    .about p { color:#d7e9ff; line-height:1.6; }
+
+    .skills-grid { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .pill { background: rgba(255,255,255,0.03); padding:8px 10px; border-radius:999px; font-weight:600; color:#cfe7ff; font-size:.88rem; box-shadow: 0 6px 12px rgba(2,6,23,0.4); transition: transform .2s; }
+    .pill:hover { transform: translateY(-4px); }
+
+    .process-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:10px; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.006)); padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); }
+    .card h4 { font-size:.95rem; margin-bottom:6px; color:#e9f6ff; }
+    .card p { font-size:.88rem; color:#cfe2ff; line-height:1.45; }
+
+    .projects { display:grid; gap:10px; margin-top:8px; }
+    .project { padding:12px; border-radius:10px; background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); }
+    .project h3 { font-size:.98rem; margin-bottom:6px; color:#eff9ff; }
+    .project p { color:#cfe1ff; font-size:.9rem; }
+
+    .timeline { margin-top:10px; display:flex; flex-direction:column; gap:8px; }
+    .item { padding:10px; border-radius:10px; background:rgba(255,255,255,0.02); border-left:4px solid rgba(36,99,255,0.6); }
+    .item .meta { color:#9fc5ff; font-size:.85rem; margin-bottom:6px; }
+
+    /* Footer / contact */
+    .contact-row { display:flex; gap:10px; margin-top:8px; flex-wrap:wrap; }
+    .link { padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:8px; color:#dff0ff; text-decoration:none; display:inline-flex; align-items:center; gap:8px; }
+
+    /* Floating decorative blob */
+    .blob { position: absolute; right:-80px; top:-60px; width:240px; height:240px; background: radial-gradient(circle at 30% 20%, rgba(0,195,255,0.18), rgba(36,99,255,0.06)); filter: blur(30px); transform: rotate(15deg); pointer-events:none; }
+
+    /* Responsive */
+    @media (max-width:900px) {
+      .wrap { grid-template-columns:1fr; padding:18px; margin:18px; }
+      .sidebar{ order:2; }
+      .main{ order:1; }
+    }
+
+    /* small animation for headings */
+    .reveal { opacity:0; transform: translateY(8px); animation: fadeInUp .6s forwards; }
+    .reveal.delay { animation-delay:.18s; }
+    @keyframes fadeInUp { to{ opacity:1; transform:translateY(0); } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <aside class="sidebar">
+      <div class="blob" aria-hidden="true"></div>
+
+      <div class="photo" title="Gautam Prasad">
+        <!-- Put your photo file in same folder and keep the exact name IMG_6958_web.JPG -->
+        <img src="IMG_6958_web.JPG" alt="Gautam Prasad photo">
+      </div>
+
+      <div class="name">Gautam Prasad</div>
+      <div class="title">Sr. Executive — Product & Prototype Development</div>
+
+      <div class="contact">
+        <div>Email: <a href="mailto:Gautamprasad7823@gmail.com" style="color:#cfe9ff; text-decoration:underline;">Gautamprasad7823@gmail.com</a></div>
+        <div>Phone: <a href="tel:+917979928272" style="color:#cfe9ff; text-decoration:underline;">+91-7979928272</a></div>
+        <div>Location: Faridabad, India</div>
+        <div style="margin-top:8px;">
+          <a class="btn" href="Resume_Gautam_Prasad.pdf" download>Download CV</a>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <div style="font-weight:700; color:#e9f8ff; margin-bottom:6px;">Languages</div>
+        <div style="color:#cfe7ff;">Hindi · English</div>
+      </div>
+
+    </aside>
+
+    <main class="main">
+      <section class="section about reveal">
+        <h2>About</h2>
+        <p>
+          Product & prototype specialist with hands-on experience in tooling, part development and cross-functional project leadership. Strong background in APQP / PPAP, feasibility studies and process control — delivering projects on time and within budget.
+        </p>
+      </section>
+
+      <section class="section reveal delay">
+        <h2>Key Skills</h2>
+        <div class="skills-grid" aria-hidden="false">
+          <!-- Skills from resume -->
+          <span class="pill">Product Development</span>
+          <span class="pill">Prototype Development</span>
+          <span class="pill">Project Management</span>
+          <span class="pill">SolidWorks</span>
+          <span class="pill">AutoCAD</span>
+          <span class="pill">SAP</span>
+          <span class="pill">APQP / PPAP</span>
+          <span class="pill">Tool & Gauge Design</span>
+          <span class="pill">Kaizen / 5S / Poka-Yoke</span>
+          <span class="pill">Process Optimization</span>
+          <span class="pill">Layout & Inspection</span>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <h2>Process Knowledge</h2>
+        <div class="process-list">
+          <div class="card">
+            <h4>Sheet Metal</h4>
+            <p>Laser/plasma cutting, bending, press brake, shearing, rolling, welding — full product cycle to production.</p>
+          </div>
+          <div class="card">
+            <h4>Machining & Fabrication</h4>
+            <p>Machined development parts, layout inspections and control plans for critical components.</p>
+          </div>
+          <div class="card">
+            <h4>Finishing</h4>
+            <p>Metalizing, powder coating and other surface treatments to meet part specifications.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal delay">
+        <h2>Representative Projects</h2>
+        <div class="projects">
+          <div class="project">
+            <h3>Earthmovers — JCB & Manitou</h3>
+            <p>Fuel/Hydraulic Tank, Engine Mount, Foot Step, Stabilizer & Exhaust components — prototype and production support.</p>
+          </div>
+          <div class="project">
+            <h3>Agriculture — Escorts, Kubota & Mahindra</h3>
+            <p>Hydraulic tanks, mufflers and ROPS systems — development trials and supplier coordination.</p>
+          </div>
+          <div class="project">
+            <h3>Automobile (4-wheeler / 2-wheeler)</h3>
+            <p>Chassis parts and various assemblies for MSIL, Honda & Yamaha — feasibility, testing and PPAP support.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <h2>Experience</h2>
+        <div class="timeline">
+          <div class="item">
+            <div class="meta">2021 – Present | Sr. Executive — JBM Industries Ltd, Faridabad</div>
+            <div>Leading product development, tooling, supplier trials and APQP / PPAP processes. Managed prototype programs and cost negotiation for BOP development.</div>
+          </div>
+          <div class="item">
+            <div class="meta">2017 – 2021 | Engineer — JL Auto Parts Pvt Ltd, Faridabad</div>
+            <div>Component sourcing, process improvement and production support.</div>
+          </div>
+          <div class="item">
+            <div class="meta">2016 – 2017 | GET — JBM Auto System Pvt Ltd, Chennai</div>
+            <div>Graduate Engineer Trainee — part development & layout inspections.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal delay">
+        <h2>Contact & Hire</h2>
+        <p>Available for freelance projects in product development, prototype design, tooling & supplier development. Quick response and onsite supplier coordination available in the NCR region.</p>
+
+        <div class="contact-row">
+          <a class="link" href="mailto:Gautamprasad7823@gmail.com">Email</a>
+          <a class="link" href="tel:+917979928272">Call / WhatsApp</a>
+          <a class="link" href="Resume_Gautam_Prasad.pdf" download>Download CV</a>
+          <a class="link" href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    // small enhancements: reveal animation on load already handled via CSS keyframes,
+    // add smooth-scrolling for internal links if you expand later
+    (function(){
+      document.documentElement.style.scrollBehavior = 'smooth';
+      // small typing-ish headline effect (non-blocking)
+      const aboutP = document.querySelector('.about p');
+      if(!aboutP) return;
+    })();
+  </script>
+</body>
+</html>
